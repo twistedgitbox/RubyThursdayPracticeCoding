@@ -1,0 +1,47 @@
+$cat ~/.ssh/id_rsa.pub
+
+ssh root@ipadd
+sudo adduser xxx
+sudo adduser xxx deploy sudo
+exit
+ssh-copy-id deploy@ipadd
+
+sudo apt-get install unattended-upgrades
+sudo dpkg-reconfigure unattended-upgrades
+
+sudo apt-get update
+sudo apt-get upgrade
+
+echo "gem: --no-ri --no-rdoc" > ~ /.gemrc
+
+sudo gem install bundler
+
+INSTALL POSTGRES
+
+Easy:
+
+sudo apt-get install postgresql postgresql-contrib
+
+DG Version
+SSH into production
+
+sudo apt-get install postgresql postgresql-contrib libpq-dev
+
+sudo su - postgres
+
+psql
+
+postgres = CREATE USER xxx WITH PASSWORD 'yyyy';
+
+CREATE DATABASE application_name_stagingl
+CREATE DATABASE application name_production
+
+GRANT ALL PRIVILEGES ON DATABASE "application_name_staging" to xxx;
+
+q
+
+exit
+
+sudo apt-get install imagemagick libmagickcore-dev libmagickwand-dev
+
+
