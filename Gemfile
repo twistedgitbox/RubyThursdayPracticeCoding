@@ -34,7 +34,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 group :development, :test do
   gem 'better_errors'
-#  capybara-webkit
+ #capybara-webkit'
   gem 'factory_girl_rails'
   gem 'ffaker'
   gem 'database_cleaner'
