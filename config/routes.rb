@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
+  resources :starships
+  resources :crew_members, only: [:new, :create]
+  get 'admin/hacker_list'
+
+  devise_for :admins
+  devise_for :hackers
  root 'home#index'
+
+ get 'starships/create_your_own_starship'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

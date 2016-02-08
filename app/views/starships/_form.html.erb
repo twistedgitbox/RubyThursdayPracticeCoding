@@ -1,0 +1,36 @@
+<%= form_for(@starship) do |f| %>
+  <% if @starship.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@starship.errors.count, "error") %> prohibited this starship from being saved:</h2>
+
+      <ul>
+      <% @starship.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+Crew Members:
+<div>
+  <%= f.fields_for :crew_members do |cm| %>
+    <%= render 'crew_member_fields', f: crew_members %>
+  <% end %>
+  <div class="add-more-crew">
+    <%= link_to_add_association 'Add Another Crew Member', f, :crew_members %>
+  </div>
+</div>
+Enter your email address to receive awesome stuff!
+<div class="field">
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @starship.name %>
+  <strong>Crew Members:</strong>
+  <% @ starship.crew_members.each do |crew_member| %>
+    <%= crew_member.name %>
+  <% end %>
+</p>
+<%= link_to 'Edit', edit_starship_path(@starship) %> |
+<%= link_to 'Back', starships_path %>
