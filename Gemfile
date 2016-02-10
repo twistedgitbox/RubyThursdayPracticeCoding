@@ -32,6 +32,9 @@ gem 'devise'
 
 gem 'cocoon' # for nested forms
 
+gem 'wysiwyg-rails' #FROALA GEM - NEEDS DEV LICENSE FOR PRODUCTION
+gem 'font-awesome-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
@@ -51,6 +54,7 @@ group :development, :test do
   gem 'simple_bdd'
   gem 'shoulda-matchers'
   gem 'spring'
+  gem 'figaro'
   gem 'capistrano', '~> 3.4.0'
   gem 'capistrano-rails'
   gem 'capistrano-passenger'
