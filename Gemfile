@@ -37,6 +37,8 @@ gem 'cocoon' # for nested forms
 
 group :development, :test do
   gem 'better_errors'
+#  gem 'capybara'
+  gem 'capybara-email'
   gem 'capybara-webkit'
   gem 'factory_girl_rails'
   gem 'ffaker'
@@ -49,6 +51,10 @@ group :development, :test do
   gem 'simple_bdd'
   gem 'shoulda-matchers'
   gem 'spring'
+  gem 'capistrano', '~> 3.4.0'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
+  gem 'capistrano-figaro-yml'
 end
 
 group :development do

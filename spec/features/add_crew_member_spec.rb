@@ -16,8 +16,8 @@ feature "Add Crew Members" do
   def visitor_adds_crew_member
     click_link "Edit"
     click_link "Add Another Crew Member"
-    find(".crew_name").set("Dr. Katherine Pulaski")
-    find(".crew_division").set("Science")
+    find(".crew-name").set("Dr. Katherine Pulaski")
+    find(".crew-division").set("Science")
     click_button "Update Starship"
   end
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "admin" do
+feature "Admin" do
 
   #communicate purpose upfront
 

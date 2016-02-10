@@ -15,7 +15,7 @@ class StarshipsController < ApplicationController
   # GET /starships/new
   def new
     @starship = Starship.new
-    3.times { @starship.crew_members.build }
+    3.times { @starship.crew_members.build}
   end
 
   # GET /starships/1/edit
@@ -29,8 +29,8 @@ class StarshipsController < ApplicationController
 
     respond_to do |format|
       if @starship.save
-        if @starship.email present?
-          StarshipMailer.starship_created_email(@starship).deliver_now
+        if @starship.email.present?
+         StarshipMailer.starship_created_email(@starship).deliver_now
         end
         format.html { redirect_to @starship, notice: 'Starship was successfully created.' }
         format.json { render :show, status: :created, location: @starship }
@@ -77,7 +77,8 @@ class StarshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def starship_params
-      params.require(:starship).permit(:name, :email,
-        crew_members_attributes: [:starship_id, :name, :division, :id, :_destroy])
+      params.require(:starship).permit(:name,:email,
+      crew_members_attributes: [:starship_id, :name,
+     :division, :id, :_destroy])
     end
 end

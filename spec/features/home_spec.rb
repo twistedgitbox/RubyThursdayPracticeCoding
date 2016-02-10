@@ -14,7 +14,5 @@ feature "visiting the homepage" do
     end
     click_link "Close"
     expect(page).not_to have_text("Beam me up, Scotty!")
-
-    end
-
+  end
 end

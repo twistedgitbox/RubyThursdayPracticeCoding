@@ -8,9 +8,10 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/webkit/matchers'
 require 'simple_bdd'
+require 'support/helpers'
 require 'shoulda/matchers'
 require 'capybara/rails'
-#require 'capybara/email/rspec'
+require 'capybara/email/rspec'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -33,6 +34,13 @@ require 'capybara/rails'
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
 
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
+end
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   Capybara.javascript_driver = :webkit
@@ -43,7 +51,7 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = true
 
-  config.include SimpleBdd, type: :features
+  config.include SimpleBdd, type: :feature
   # config.include Devise::TestHelpers, :type => :controller
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation

@@ -3,9 +3,9 @@ require 'rails_helper'
 feature "Starship with Crew Members" do
   # communicate purpose upfront with Simple BDD
   scenario "visitor can create starship with crew members" do
-    Given "visitor can view new startship form"
-    When "visitor enters information for startup and crew members"
-    Then "visitor can see startship listing"
+    Given "visitor can view new starship form"
+    When "visitor enters information for starship and crew members"
+    Then "visitor can see starship listing"
     Then "visitor receives starship email"
   end
 
@@ -16,7 +16,7 @@ feature "Starship with Crew Members" do
 
   def visitor_enters_information_for_starship_and_crew_members
     enter_starship_info
-    enter_crew_member_info
+    enter_crew_members_info
     click_button "Create Starship"
   end
 
@@ -25,19 +25,17 @@ feature "Starship with Crew Members" do
     expect(page).to have_content("James T. Kirk")
   end
 
-  def vistor_receives_starship_email
+  def visitor_receives_starship_email
     open_email('melissa@rubythursday.com')
     expect(current_email.to).to eq ["melissa@rubythursday.com"]
     expect(current_email.subject).to eq 'Starship Created'
     expect(current_email).to have_content('Congrats!')
     clear_emails
-
-
   end
 
   def enter_starship_info
     fill_in("starship[name]", with: "USS Enterprise (NCC-1701-A)")
-    fill_in("starship[email]", with: ["melissa@rubythursday.com"])
+    fill_in("starship[email]", with: "melissa@rubythursday.com")
   end
 
   def enter_crew_members_info
@@ -46,7 +44,6 @@ feature "Starship with Crew Members" do
     fill_in("starship[crew_members_attributes][1][name]", with: "Spock")
     select('Science', :from => "starship[crew_members_attributes][1][division]")
     fill_in("starship[crew_members_attributes][2][name]", with: "Leonard McCoy")
-    select('Engineering', :from => "starship[crew_members_attributes][2][division]")
+    select('Engineering', :from => "starship[crew_members_attributes][0][division]")
   end
-
 end

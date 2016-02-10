@@ -17,7 +17,7 @@
   </div>
 Crew Members:
 <div>
-  <%= f.fields_for :crew_members do |cm| %>
+  <%= f.fields_for :crew_members do |crew_members| %>
     <%= render 'crew_member_fields', f: crew_members %>
   <% end %>
   <div class="add-more-crew">
